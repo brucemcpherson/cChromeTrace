@@ -2,6 +2,13 @@
 // implements a subset of https://docs.google.com/document/d/1CvAClvFfyA5R-PhYUmn5OOQtYMH4h6I0nSsKchNAySU/edit#heading=h.yr4qxyxotyw
 'use strict';
 var ENUMS = {
+
+  SCOPES : {
+    GLOBAL: 'g',
+    PROCESS: 'p',
+    THREAD: 't'
+  },
+
   PH: {
     
     DURATION: {
@@ -114,6 +121,17 @@ function ChromeTrace() {
   };
   
   /**
+   * record a counter event
+   * @param {string} name the item name
+   * @param {ChromeTraceEvent} options template -- args object should contain what's bein gcounted
+   * @return {ChromeTraceEvent} the updated event
+   */
+  self.instant = function (name , options ) {
+    return self.eventAdd (name, options , ENUMS.PH.COUNTER);
+  };
+  
+  
+  /**
    * add an event
    * @param {string} name the item name
    * @param {ChromeTraceEvent} options template
@@ -173,7 +191,8 @@ function ChromeTrace() {
          
          // timestamp order
          .sort(function(a,b){
-           return a.getEvent().ts - b.getEvent().ts ? a.ts - b.ts : a.index - b.index;
+           var cmp = a.getEvent().ts - b.getEvent().ts;
+           return  cmp ? cmp : a.index - b.index;
          })
          
          //strip out to just stringifiable
@@ -216,15 +235,15 @@ function ChromeTraceEvent(options,index) {
   // apply defaults
   var event_ = cUseful.extend ( cUseful.clone(options || {}) , {
     "name": "traceEvent",
-    "cat": "",
+    "cat": "chrometrace",
     "ph": ENUMS.PH.DURATION.BEGIN,
     "ts": new Date().getTime(),
     "pid": 1,
     "tid": 1,
-    "args": null
+    "args": null,
+    "s": ENUMS.SCOPES.GLOBAL
   });
-  
-  event_.cat = event_.cat || (event_.ph === ENUMS.PH.COUNTER ? 'counter' : 'duration' ); 
+
   /**
    * return the data for this object
    * @return {ChromeTraceEvent.item}
@@ -232,7 +251,6 @@ function ChromeTraceEvent(options,index) {
   self.getEvent = function () {
     return event_;
   };
-
 
   return self;
     
