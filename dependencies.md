@@ -1,5 +1,5 @@
 # Google Apps Script Project: cChromeTrace
-This repo (cChromeTrace) was automatically updated on 03 May 2015 20:40:02 BST by GasGit
+This repo (cChromeTrace) was automatically updated on 06 May 2015 10:35:32 BST by GasGit
 
 For more information see the [desktop liberation site](http://ramblings.mcpher.com/Home/excelquirks/drivesdk/gettinggithubready "desktop liberation") or [contact me on G+](https://plus.google.com/+BruceMcpherson "Bruce McPherson - GDE")
 ## Details for Apps Script project cChromeTrace
