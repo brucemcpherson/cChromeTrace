@@ -96,19 +96,24 @@ function ChromeTrace() {
    * @param {ChromeTraceEvent} options template
    * @return {ChromeTraceEvent} the updated event
    */
-  self.begin = function (name, options) {
+  self.start = function (name, options) {
     return self.eventAdd (name, options , ENUMS.PH.DURATION.BEGIN);
   };
   
+
   /**
    * record an end event
    * @param {string} name the item name
    * @param {ChromeTraceEvent} options template
    * @return {ChromeTraceEvent} the updated event
    */
-  self.end = function (name, options) {
+  self.finish = function (name, options) {
     return self.eventAdd (name, options , ENUMS.PH.DURATION.END);
   };
+
+  //backwards compat;
+  self.begin = self.start;
+  self.end = self.finish;
   
   /**
    * record a counter event
@@ -121,13 +126,13 @@ function ChromeTrace() {
   };
   
   /**
-   * record a counter event
+   * record a instant event
    * @param {string} name the item name
    * @param {ChromeTraceEvent} options template -- args object should contain what's bein gcounted
    * @return {ChromeTraceEvent} the updated event
    */
   self.instant = function (name , options ) {
-    return self.eventAdd (name, options , ENUMS.PH.COUNTER);
+    return self.eventAdd (name, options , ENUMS.PH.INSTANT);
   };
   
   
@@ -160,10 +165,11 @@ function ChromeTrace() {
      
      // it's possible to only dump one event stream
      if (name) {
-       item = [items_[name]];
-       if ( !item) {
+      
+       if ( !items_[name]) {
          throw 'could not find item ' + name;
        }
+       item = [items_[name]];
      }
      // everything
      else {
