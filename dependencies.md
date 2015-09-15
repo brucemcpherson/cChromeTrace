@@ -1,9 +1,9 @@
 # Google Apps Script Project: cChromeTrace
-This repo (cChromeTrace) was automatically updated on 06 May 2015 10:35:32 BST by GasGit
+This repo (cChromeTrace) was automatically updated on 15 September 2015 11:49:49 BST by GasGit
 
 For more information see the [desktop liberation site](http://ramblings.mcpher.com/Home/excelquirks/drivesdk/gettinggithubready "desktop liberation") or [contact me on G+](https://plus.google.com/+BruceMcpherson "Bruce McPherson - GDE")
 ## Details for Apps Script project cChromeTrace
-Where possibile directly referenced or sub referenced library sources have been copied to this repository, or you can include the library references shown. 
+Where possible directly referenced or sub referenced library sources have been copied to this repository, or you can include the library references shown. 
 The shared link for [cChromeTrace is here](https://script.google.com/d/18DUgAypAyUNTeHmCVDHtiqrTFc9ovMKFQ70bFOMgJrB-ho49Z0UC-utu/edit?usp=sharing "open in the GAS IDE")
 
 ### Modules of cChromeTrace.gs included in this repo
@@ -12,10 +12,19 @@ The shared link for [cChromeTrace is here](https://script.google.com/d/18DUgAypA
 Code| server_js
 forPublishing| server_js
 ### Directly referenced libraries
-no libraries discovered
+*library*|*identifier*|*key*|*version*|*dev mode*|*source*|
+--- | --- | --- | --- | --- | --- 
+cDriveJsonApi| cDriveJsonApi|MvIo2UPbHoLDhAVcRHrI-VSz3TLx7pV4j|8|no|[here](libraries/cDriveJsonApi "library source")
+cUseful| cUseful|Mcbr-v4SsYKJP7JMohttAZyz3TLx7pV4j|24|no|[here](libraries/cUseful "library source")
 ### All dependencies and sub dependencies
-no libraries discovered
+*library*|*identifier*|*key*|*version*|*dev mode*|*source*|
+--- | --- | --- | --- | --- | --- 
+cDriveJsonApi| cDriveJsonApi|MvIo2UPbHoLDhAVcRHrI-VSz3TLx7pV4j|8|no|[here](libraries/cDriveJsonApi "library source")
+cUseful| cUseful|Mcbr-v4SsYKJP7JMohttAZyz3TLx7pV4j|23|no|[here](libraries/cUseful "library source")
+cUrlResult| cUrlResult|M59PE-C_VqcthwNDmXB9gsCz3TLx7pV4j|11|no|[here](libraries/cUrlResult "library source")
 ### Enabled Google Services
-no libraries discovered
+*library*|*identifier*|*version*
+--- | --- | --- 
+Drive API| Drive|v2
 ###Need more detail ?
 You can see [full project info as json here](info.json)
